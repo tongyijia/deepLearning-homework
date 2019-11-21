@@ -8,7 +8,7 @@ import numpy as np
 
 def sigmoid(Z):
     
-    A = 1 / (1 + np.exp(Z))
+    A = 1 / (1 + np.exp(-Z))
     cache = Z
     
     return A, cache
@@ -36,6 +36,7 @@ def relu_backward(dA, cache):
     dZ = np.array(dA, copy = True)
     
     dZ[Z <= 0] = 0
+    
     
     return dZ
 
